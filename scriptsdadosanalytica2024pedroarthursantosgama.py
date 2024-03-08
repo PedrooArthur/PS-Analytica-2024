@@ -9,6 +9,8 @@ Original file is located at
 
 pip install pandas matplotlib
 
+#####SCRIPT DOS GRÁFICOS
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -46,3 +48,31 @@ plt.ylabel('Gastos em Educação')
 plt.title(f'Evolução dos Gastos em Educação na Macrorregião {macrorregiao}')
 plt.legend()
 plt.show()
+
+######SCRIPTS DAS CONSULTAS SQL UTLIZADAS NO BIG QUERY STUDIO
+
+
+
+SELECT ano, sigla_uf, conta, estagio_bd, SUM(valor) AS GASTOS FROM `basedosdados.br_me_siconfi.municipio_despesas_funcao` where conta like ('%Ensino Fundamental%') and estagio_bd like 'Despesas Empenhadas' GROUP BY ano, sigla_uf, conta,estagio_bd ORDER BY ano
+
+SELECT ano, sigla_uf, indice_escolaridade, prop_ocupados_fundamental,taxa_dom_sem_fund,taxa_dom_vulner_sem_fund, prop_ocupados_medio, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS porcentagem	 FROM `basedosdados.mundo_onu_adh.uf`
+
+SELECT ano, sigla_uf, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS PorcPeaPia10_14, (pea_15_17/ pia_15_17) * 100 AS PorcPeaPia15_17	 FROM `basedosdados.mundo_onu_adh.uf` where sigla_uf in ('MS','MT','GO') and ano = 2000
+
+SELECT ano, sigla_uf, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS PorcPeaPia10_14, (pea_15_17/ pia_15_17) * 100 AS PorcPeaPia15_17	 FROM `basedosdados.mundo_onu_adh.uf` where sigla_uf in ('RJ','SP','ES', 'MG') and ano = 2000
+
+SELECT ano, sigla_uf, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS PorcPeaPia10_14, (pea_15_17/ pia_15_17) * 100 AS PorcPeaPia15_17	 FROM `basedosdados.mundo_onu_adh.uf` where sigla_uf in ('AC','AM','PA','RR','RO','AP','TO') and ano = 2000
+
+SELECT ano, sigla_uf, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS PorcPeaPia10_14, (pea_15_17/ pia_15_17) * 100 AS PorcPeaPia15_17	 FROM `basedosdados.mundo_onu_adh.uf` where sigla_uf in ('SC','PR','RS') and ano = 2000
+
+SELECT ano, sigla_uf, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS PorcPeaPia10_14, (pea_15_17/ pia_15_17) * 100 AS PorcPeaPia15_17	 FROM `basedosdados.mundo_onu_adh.uf` where sigla_uf in ('AL','BA','CE','MA','PA','PB','PI','RN','SE') and ano = 2000
+
+SELECT ano, sigla_uf, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS PorcPeaPia10_14, (pea_15_17/ pia_15_17) * 100 AS PorcPeaPia15_17	 FROM `basedosdados.mundo_onu_adh.uf` where sigla_uf in ('MS','MT','GO') and ano = 2010
+
+SELECT ano, sigla_uf, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS PorcPeaPia10_14, (pea_15_17/ pia_15_17) * 100 AS PorcPeaPia15_17	 FROM `basedosdados.mundo_onu_adh.uf` where sigla_uf in ('RJ','SP','ES', 'MG') and ano = 2010
+
+SELECT ano, sigla_uf, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS PorcPeaPia10_14, (pea_15_17/ pia_15_17) * 100 AS PorcPeaPia15_17	 FROM `basedosdados.mundo_onu_adh.uf` where sigla_uf in ('AC','AM','PA','RR','RO','AP','TO') and ano = 2010
+
+SELECT ano, sigla_uf, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS PorcPeaPia10_14, (pea_15_17/ pia_15_17) * 100 AS PorcPeaPia15_17	 FROM `basedosdados.mundo_onu_adh.uf` where sigla_uf in ('SC','PR','RS') and ano = 2010
+
+SELECT ano, sigla_uf, taxa_criancas_fora_escola_4_5, taxa_criancas_fora_escola_6_14, pea_10_14, pea_15_17, pia_10_14, pia_15_17, (pea_10_14/ pia_10_14) * 100 AS PorcPeaPia10_14, (pea_15_17/ pia_15_17) * 100 AS PorcPeaPia15_17	 FROM `basedosdados.mundo_onu_adh.uf` where sigla_uf in ('AL','BA','CE','MA','PA','PB','PI','RN','SE') and ano = 2010
